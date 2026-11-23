@@ -1,0 +1,688 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>মামুন রেজা টেলিকম (Mamun Reza Telecom - MRT)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-dark: #070b14;
+      --bg-card: #0e1626;
+      --bg-card-hover: #131f36;
+      --sky: #38bdf8;
+      --sky-deep: #0284c7;
+      --silver: #cbd5e1;
+      --silver-bright: #f1f5f9;
+      --text-muted: #94a3b8;
+      --border: rgba(148, 163, 184, 0.16);
+      --border-sky: rgba(56, 189, 248, 0.35);
+      --success: #22c55e;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Hind Siliguri', 'Plus Jakarta Sans', sans-serif;
+      background-color: var(--bg-dark);
+      color: var(--silver-bright);
+      line-height: 1.7;
+      overflow-x: hidden;
+      background-image:
+        radial-gradient(circle at 50% -10%, rgba(56, 189, 248, 0.16), transparent 45%),
+        radial-gradient(circle at 85% 25%, rgba(2, 132, 199, 0.1), transparent 35%);
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      backdrop-filter: blur(14px);
+      background: rgba(7, 11, 20, 0.82);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-wrap {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 72px;
+      gap: 12px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      color: var(--silver-bright);
+    }
+
+    .logo-gear {
+      width: 46px;
+      height: 46px;
+      flex-shrink: 0;
+      filter: drop-shadow(0 0 10px rgba(56, 189, 248, 0.35));
+    }
+
+    .brand-text {
+      display: flex;
+      flex-direction: column;
+      line-height: 1.2;
+    }
+
+    .brand-name {
+      font-weight: 700;
+      font-size: 1.08rem;
+      letter-spacing: 0.2px;
+      color: var(--silver-bright);
+    }
+
+    .brand-tag {
+      font-family: 'Plus Jakarta Sans', 'Hind Siliguri', sans-serif;
+      font-size: 0.75rem;
+      color: var(--sky);
+      font-weight: 600;
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 10px 18px;
+      border-radius: 12px;
+      font-weight: 600;
+      font-size: 0.95rem;
+      text-decoration: none;
+      cursor: pointer;
+      border: 1px solid transparent;
+      transition: all 0.22s ease;
+      font-family: inherit;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--sky), var(--sky-deep));
+      color: #04101d;
+      box-shadow: 0 8px 24px rgba(56, 189, 248, 0.28);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 28px rgba(56, 189, 248, 0.4);
+    }
+
+    .btn-outline {
+      background: rgba(14, 22, 38, 0.8);
+      color: var(--silver-bright);
+      border-color: var(--border);
+    }
+
+    .btn-outline:hover {
+      border-color: var(--border-sky);
+      background: var(--bg-card-hover);
+    }
+
+    .hero {
+      padding: 56px 0 40px;
+      text-align: center;
+    }
+
+    .trust-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 16px;
+      border-radius: 999px;
+      background: rgba(56, 189, 248, 0.12);
+      border: 1px solid var(--border-sky);
+      color: var(--sky);
+      font-size: 0.9rem;
+      font-weight: 600;
+      margin-bottom: 20px;
+    }
+
+    .hero-logo-box {
+      width: 112px;
+      height: 112px;
+      margin: 0 auto 20px;
+      border-radius: 50%;
+      background: linear-gradient(145deg, #111b2e, #090e1a);
+      border: 1px solid var(--border-sky);
+      display: grid;
+      place-items: center;
+      box-shadow: 0 0 40px rgba(56, 189, 248, 0.22);
+    }
+
+    .hero h1 {
+      font-size: clamp(2rem, 5vw, 3.1rem);
+      font-weight: 700;
+      line-height: 1.25;
+      margin-bottom: 14px;
+      background: linear-gradient(to right, #ffffff, var(--silver), var(--sky));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero p.lead {
+      max-width: 720px;
+      margin: 0 auto 28px;
+      font-size: 1.12rem;
+      color: var(--silver);
+    }
+
+    .hero-cta {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 14px;
+      margin-bottom: 36px;
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-top: 12px;
+    }
+
+    .stat-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .stat-value {
+      font-family: 'Plus Jakarta Sans', 'Hind Siliguri', sans-serif;
+      font-size: 1.65rem;
+      font-weight: 800;
+      color: var(--sky);
+      line-height: 1.2;
+    }
+
+    .stat-label {
+      color: var(--text-muted);
+      font-size: 0.92rem;
+      margin-top: 4px;
+    }
+
+    section {
+      padding: 44px 0;
+    }
+
+    .section-head {
+      text-align: center;
+      max-width: 680px;
+      margin: 0 auto 30px;
+    }
+
+    .section-head h2 {
+      font-size: clamp(1.55rem, 3.5vw, 2.15rem);
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    .section-head p {
+      color: var(--text-muted);
+      font-size: 1rem;
+    }
+
+    .promise-box {
+      background: linear-gradient(135deg, rgba(14, 22, 38, 0.95), rgba(19, 31, 54, 0.95));
+      border: 1px solid var(--border-sky);
+      border-radius: 20px;
+      padding: 28px;
+      display: grid;
+      grid-template-columns: 1.35fr 1fr;
+      gap: 24px;
+      align-items: center;
+    }
+
+    .promise-list {
+      list-style: none;
+      display: grid;
+      gap: 12px;
+      margin-top: 14px;
+    }
+
+    .promise-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      color: var(--silver-bright);
+      font-size: 1rem;
+    }
+
+    .check-badge {
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      background: rgba(34, 197, 94, 0.16);
+      color: var(--success);
+      display: inline-grid;
+      place-items: center;
+      flex-shrink: 0;
+      margin-top: 3px;
+      font-weight: 700;
+      font-size: 0.85rem;
+    }
+
+    .channel-panel {
+      background: rgba(7, 11, 20, 0.72);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 22px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .channel-panel h3 {
+      font-size: 1.2rem;
+      color: var(--sky);
+    }
+
+    .tutorial-grid {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 22px;
+      align-items: stretch;
+    }
+
+    .card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 24px;
+    }
+
+    .steps-list {
+      list-style: none;
+      display: grid;
+      gap: 14px;
+      margin-top: 14px;
+    }
+
+    .step-item {
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+    }
+
+    .step-num {
+      width: 28px;
+      height: 28px;
+      border-radius: 8px;
+      background: rgba(56, 189, 248, 0.16);
+      border: 1px solid var(--border-sky);
+      color: var(--sky);
+      font-weight: 700;
+      display: grid;
+      place-items: center;
+      flex-shrink: 0;
+      font-size: 0.9rem;
+    }
+
+    .yt-box {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 16px;
+      background: linear-gradient(160deg, rgba(56, 189, 248, 0.12), rgba(14, 22, 38, 0.95));
+      border-color: var(--border-sky);
+    }
+
+    .yt-thumb-preview {
+      border-radius: 14px;
+      background: #060911;
+      border: 1px solid var(--border);
+      padding: 24px 18px;
+      text-align: center;
+    }
+
+    .play-circle {
+      width: 58px;
+      height: 58px;
+      border-radius: 50%;
+      background: #ef4444;
+      color: #fff;
+      display: grid;
+      place-items: center;
+      margin: 0 auto 12px;
+      font-size: 1.35rem;
+      box-shadow: 0 10px 25px rgba(239, 68, 68, 0.35);
+    }
+
+    .creator-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+    }
+
+    .video-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 22px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 16px;
+      transition: transform 0.2s ease, border-color 0.2s ease;
+    }
+
+    .video-card:hover {
+      transform: translateY(-3px);
+      border-color: var(--border-sky);
+    }
+
+    .video-tag {
+      display: inline-block;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--sky);
+      background: rgba(56, 189, 248, 0.12);
+      padding: 4px 10px;
+      border-radius: 8px;
+      margin-bottom: 10px;
+    }
+
+    .video-card h3 {
+      font-size: 1.18rem;
+      margin-bottom: 6px;
+    }
+
+    .video-card p {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .contact-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 22px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 14px;
+    }
+
+    .contact-label {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+    }
+
+    .contact-value {
+      font-family: 'Plus Jakarta Sans', 'Hind Siliguri', sans-serif;
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--silver-bright);
+      word-break: break-word;
+    }
+
+    .card-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 28px 0;
+      margin-top: 24px;
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 0.92rem;
+    }
+
+    .toast {
+      position: fixed;
+      bottom: 22px;
+      left: 50%;
+      transform: translateX(-50%) translateY(80px);
+      background: #0f172a;
+      color: #f8fafc;
+      border: 1px solid var(--sky);
+      padding: 10px 20px;
+      border-radius: 12px;
+      font-weight: 600;
+      font-size: 0.95rem;
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5);
+      opacity: 0;
+      transition: all 0.28s ease;
+      z-index: 100;
+    }
+
+    .toast.show {
+      opacity: 1;
+      transform: translateX(-50%) translateY(0);
+    }
+
+    @media (max-width: 860px) {
+      .promise-box,
+      .tutorial-grid,
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .stats-grid,
+      .creator-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .nav-actions .btn-outline {
+        display: none;
+      }
+
+      .brand-name {
+        font-size: 0.98rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="container nav-wrap">
+      <a href="#" class="brand">
+        <svg class="logo-gear" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="MRT Logo">
+          <circle cx="60" cy="60" r="54" fill="#0b1220" stroke="#1e293b" stroke-width="2"/>
+          <path d="M60 12V22M60 98V108M12 60H22M98 60H108M26.1 26.1L33.2 33.2M86.8 86.8L93.9 93.9M93.9 26.1L86.8 33.2M33.2 86.8L26.1 93.9M41.6 15.3L45.1 24.6M74.9 95.4L78.4 104.7M15.3 78.4L24.6 74.9M95.4 45.1L104.7 41.6M15.3 41.6L24.6 45.1M95.4 74.9L104.7 78.4M41.6 104.7L45.1 95.4M74.9 24.6L78.4 15.3" stroke="#cbd5e1" stroke-width="5" stroke-linecap="round"/>
+          <path d="M94 60A34 34 0 1 1 60 26" stroke="#38bdf8" stroke-width="6" stroke-linecap="round"/>
+          <path d="M26 60A34 34 0 0 1 78 31.8" stroke="#cbd5e1" stroke-width="5" stroke-linecap="round"/>
+          <text x="27" y="69" fill="#38bdf8" font-family="Plus Jakarta Sans, sans-serif" font-weight="800" font-size="24">M</text>
+          <text x="53" y="68" fill="#38bdf8" font-family="Plus Jakarta Sans, sans-serif" font-weight="800" font-size="16">R</text>
+          <text x="66" y="69" fill="#cbd5e1" font-family="Plus Jakarta Sans, sans-serif" font-weight="800" font-size="24">T</text>
+        </svg>
+        <div class="brand-text">
+          <span class="brand-name">মামুন রেজা টেলিকম</span>
+          <span class="brand-tag">MAMUN REZA TELECOM • MRT</span>
+        </div>
+      </a>
+
+      <div class="nav-actions">
+        <a href="#tutorial" class="btn btn-outline">ফ্রি একাউন্ট</a>
+        <a href="https://t.me/MRTtelecom" target="_blank" rel="noopener noreferrer" class="btn btn-primary">টেলিগ্রাম যোগাযোগ</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container">
+        <div class="trust-pill">
+          <span>★</span>
+          <span>২০২০ সাল থেকে বিশ্বস্ততার সাথে সেবা প্রদান</span>
+        </div>
+
+        <div class="hero-logo-box">
+          <svg width="82" height="82" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M60 10V21M60 99V110M10 60H21M99 60H110M24.6 24.6L32.4 32.4M87.6 87.6L95.4 95.4M95.4 24.6L87.6 32.4M32.4 87.6L24.6 95.4M41.2 14.2L45 24.2M75 95.8L78.8 105.8M14.2 78.8L24.2 75M95.8 45L105.8 41.2M14.2 41.2L24.2 45M95.8 75L105.8 78.8M41.2 105.8L45 95.8M75 24.2L78.8 14.2" stroke="#e2e8f0" stroke-width="5.5" stroke-linecap="round"/>
+            <path d="M95 60A35 35 0 1 1 60 25" stroke="#38bdf8" stroke-width="6.5" stroke-linecap="round"/>
+            <path d="M25 60A35 35 0 0 1 79 30.8" stroke="#cbd5e1" stroke-width="5" stroke-linecap="round"/>
+            <text x="26" y="69" fill="#38bdf8" font-family="Plus Jakarta Sans, sans-serif" font-weight="800" font-size="25">M</text>
+            <text x="53" y="68" fill="#38bdf8" font-family="Plus Jakarta Sans, sans-serif" font-weight="800" font-size="16">R</text>
+            <text x="66" y="69" fill="#e2e8f0" font-family="Plus Jakarta Sans, sans-serif" font-weight="800" font-size="25">T</text>
+          </svg>
+        </div>
+
+        <h1>মামুন রেজা টেলিকম</h1>
+        <p class="lead">
+          আমরা বিশ্বস্ততার সাথে <strong>২০২০ সাল থেকে</strong> অফার সেল করি। সব টেলিকম থেকে কম দামে অফার দিয়ে থাকি—তাই আজই একদম ফ্রিতে একাউন্ট করুন এবং নিশ্চিন্তে টেলিকম ব্যবসা পরিচালনা করুন।
+        </p>
+
+        <div class="hero-cta">
+          <a href="https://t.me/mamunrezatelecon" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+            টেলিগ্রাম চ্যানেলে জয়েন করুন
+          </a>
+          <a href="https://t.me/MRTtelecom" target="_blank" rel="noopener noreferrer" class="btn btn-outline">
+            সরাসরি টেলিগ্রাম যোগাযোগ
+          </a>
+        </div>
+
+        <div class="stats-grid">
+          <div class="stat-card">
+            <div class="stat-value">২০২০ সাল থেকে</div>
+            <div class="stat-label">ধারাবাহিক ও বিশ্বস্ত সেবা</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-value">১ টাকাও না</div>
+            <div class="stat-label">আজ পর্যন্ত ১ টাকা কারো মারা যাওয়ার রেকর্ড নেই</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-value">সবচেয়ে কম দাম</div>
+            <div class="stat-label">অন্য সব টেলিকমের তুলনায় সাশ্রয়ী অফার ও ফ্রি একাউন্ট</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="trust">
+      <div class="container">
+        <div class="promise-box">
+          <div>
+            <span class="video-tag">বিশ্বস্ততা ও নিশ্চয়তা</span>
+            <h2 style="font-size: 1.65rem; margin-bottom: 10px;">নিঃসন্দেহে আমাদের টেলিকম চালাতে পারেন</h2>
+            <p style="color: var(--silver);">
+              আমরা বিশ্বস্ততার সাথে ২০২০ সাল থেকে অফার সেল করি—যেটা আমাদের টেলিগ্রামে জয়েন হলেই সরাসরি বুঝতে পারবেন।
+            </p>
+            <ul class="promise-list">
+              <li>
+                <span class="check-badge">✓</span>
+                <span>২০২০ সাল থেকে আজ পর্যন্ত <strong>১ টাকা কেউ মারা খেয়েছে এমন রেকর্ড নাই</strong>।</span>
+              </li>
+              <li>
+                <span class="check-badge">✓</span>
+                <span>সব টেলিকম থেকে কম দামে অফার এবং আজকে একদম ফ্রিতে একাউন্ট করার সুবিধা।</span>
+              </li>
+              <li>
+                <span class="check-badge">✓</span>
+                <span>লাইভ অফার আপডেট ও কাজের প্রমাণ দেখতে টেলিগ্রাম চ্যানেলে যুক্ত থাকুন।</span>
+              </li>
+            </ul>
+          </div>
+
+          <div class="channel-panel">
+            <h3>আমাদের টেলিগ্রাম কমিউনিটি</h3>
+            <p style="color: var(--text-muted); font-size: 0.96rem;">
+              আমাদের কাজের আপডেট ও বিশ্বস্ততার প্রমাণ দেখতে নিচের টেলিগ্রাম চ্যানেলে ক্লিক করুন, অথবা সরাসরি সাপোর্টে কথা বলুন।
+            </p>
+            <a href="https://t.me/mamunrezatelecon" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+              দেখতে ক্লিক করুন (টেলিগ্রাম চ্যানেল)
+            </a>
+            <a href="https://t.me/MRTtelecom" target="_blank" rel="noopener noreferrer" class="btn btn-outline">
+              সরাসরি টেলিগ্রাম (@MRTtelecom)
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="tutorial">
+      <div class="container">
+        <div class="section-head">
+          <h2>কিভাবে ফ্রি একাউন্ট করবেন?</h2>
+          <p>সব টেলিকম থেকে কম দামে অফার পেতে আজই একদম ফ্রিতে একাউন্ট তৈরি করুন।</p>
+        </div>
+
+        <div class="tutorial-grid">
+          <div class="card">
+            <h3 style="font-size: 1.25rem; color: var(--sky);">ফ্রি একাউন্ট খোলার সহজ গাইড</h3>
+            <ul class="steps-list">
+              <li class="step-item">
+                <span class="step-num">১</span>
+                <div>
+                  <strong>ভিডিও গাইড দেখুন:</strong> পাশে থাকা YouTube Shorts ভিডিওটি দেখে একাউন্ট করার নিয়ম বুঝে নিন।
+                </div>
+              </li>
+              <li class="step-item">
+                <span class="step-num">২</span>
+                <div>
+                  <strong>টেলিগ্রামে যোগাযোগ করুন:</strong> একদম ফ্রি একাউন্ট পেতে সরাসরি <a href="https://t.me/MRTtelecom" target="_blank" rel="noopener noreferrer" style="color: var(--sky);">@MRTtelecom</a> অথবা কল/হোয়াটসঅ্যাপে যোগাযোগ করুন।
+                </div>
+              </li>
+              <li class="step-item">
+                <span class="step-num">৩</span>
+                <div>
+                  <strong>কম দামে অফার নিন:</strong> একাউন্ট চালু হওয়ার পর সব টেলিকমের চেয়ে কম দামে অফার নিয়ে নিশ্চিন্তে কাজ শুরু করুন।
+                </div>
+              </li>
+            </ul>
+          </div>
+
+          <div class="card yt-box">
+            <div class="yt-thumb-preview">
+              <div class="play-circle">▶</div>
+              <div style="font-weight: 700; font-size: 1.1rem; margin-bottom: 4px;">কিভাবে একাউন্ট করবেন?</div>
+              <div style="color: var(--text-muted); font-size: 0.9rem;">YouTube Shorts ভিডিও টিউটোরিয়াল</div>
+            </div>
+            <a href="https://youtube.com/shorts/uFjnTTHBVh0?si=UuArI9F5PBphek4I" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="width: 100%;">
+              YouTube Shorts ভিডিও দেখুন
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="creator-reviews">
+      <div class="container">
+        <div class="section-head">
+          <h2>জনপ্রিয় কন্টেন্ট ক্রিয়েটর ফারাবির আলোচনা</h2>
+          <p>জনপ্রিয় কন্টেন্ট তৈরি করে ফারাবি আমাদের টেলিকম সম্পর্কে আলোচনা করেছেন—ভিডিও দুটি নিচে দেওয়া হলো।</p>
+        </div>
+
+   
